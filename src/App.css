@@ -250,7 +250,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background: linear-gradient(black, #370d0b 60% ,rgba(106, 13, 13, 0.01));
   border: 1px solid rgba(255, 255, 255, 0.5);
   font-size: 20px;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
   display: inline-block;
 }
 .banner h1 {
@@ -258,7 +258,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 1;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   display: block;
 }
 .banner p {
@@ -282,6 +282,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-left: 10px;
   transition: 0.3s ease-in-out;
   line-height: 1;
+}
+
+.wrap{
+  font-size:40px;
 }
 .banner button:hover svg {
   margin-left: 25px;
