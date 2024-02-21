@@ -9,9 +9,36 @@ import navIcon3 from "../assets/img/nav-icon3.svg";
 import navIcon4 from "../assets/img/github3.svg";
 import emailjs from "@emailjs/browser";
 import React, { useRef } from "react";
+import { message } from 'antd';
 
 
 export const Contact = () => {
+  
+
+  const validateForm = () => {
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const nameRegex = /^[a-zA-Z\s]*$/;
+    
+    // Validate email
+    if (!emailRegex.test(formDetails.email)) {
+      return { isValid: false, message: 'Invalid email address' };
+    }
+    
+    // Validate name
+    if (!nameRegex.test(formDetails.firstName)) {
+      return { isValid: false, message: 'Name must contain only letters' };
+    }
+    
+    // Validate message
+    if (!formDetails.message.trim()) {
+      return { isValid: false, message: 'Message cannot be empty' };
+    }
+    
+    // If all validations pass, return isValid true
+    return { isValid: true };
+  };
+
+
   const formInitialDetails = {
     firstName: '',
     
@@ -39,6 +66,26 @@ export const Contact = () => {
     e.preventDefault();
     setButtonText("Sending...");
 
+   
+      const validation = validateForm();
+      if (!validation.isValid) {
+        setTimeout(()=>{
+             setButtonText("Send");
+
+            },1000);
+
+            const config = {
+              className : "custom-alert",
+              content : validation.message,
+              duration : 2,
+              maxCount: 3,
+              
+            };
+        return message.error(config);
+      }
+ 
+   
+
     setTimeout(() => {
       emailjs
         .sendForm('service_ctlqrio', 'template_0ka7xkh', form.current, {
@@ -58,7 +105,20 @@ export const Contact = () => {
           setButtonText("Send");
           setFormDetails(formInitialDetails);
         });
-    }, 2000); // 2000 milliseconds = 2 seconds
+    }, 2000);
+     // 2000 milliseconds = 2 seconds
+     const config = {
+      className : "custom-alert",
+      content : "Email sent successfully! Thank you for contacting",
+      duration : 2,
+      maxCount: 3,
+      
+    };
+setTimeout(()=>{
+  return message.success(config);
+},3000);
+
+     
   };
 
   useEffect(() => {
@@ -91,7 +151,7 @@ export const Contact = () => {
                       <input type="text"  placeholder="Name" name = "sender_name"  value={formDetails.firstName}  onChange={(e) => onFormUpdate('firstName', e.target.value)}/>
                     </Col>
                     <Col size={12} sm={12} className="px-1">
-                      <input type="email"  placeholder="Email Address" name = "sender_email"  value={formDetails.email} onChange={(e) => onFormUpdate('email', e.target.value)}/>
+                      <input type="email" placeholder="Email Address" name = "sender_email"  value={formDetails.email} onChange={(e) => onFormUpdate('email', e.target.value)}/>
                     </Col>
                    </Row>
                    <Row>
@@ -99,12 +159,7 @@ export const Contact = () => {
                       <textarea rows="6"  placeholder="Message" name ="message" value={formDetails.message}  onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
                     </Col>
                      <button type="submit"><span>{buttonText}</span></button>
-                     {
-                      status.message &&
-                      <Col>
-                        <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
-                      </Col>
-                    }
+                    
     
                   </Row>
                 </form>
@@ -114,5 +169,6 @@ export const Contact = () => {
         </Row>
       </Container>
     </section>
+    
   )
 }

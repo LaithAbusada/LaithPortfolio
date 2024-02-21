@@ -3,7 +3,9 @@ import { ProjectCard } from "./ProjectCard";
 import projImg1 from "../assets/img/wings.jpg";
 import projImg2 from "../assets/img/atm.jpg";
 import projImg3 from "../assets/img/fuel.jpg";
-
+import haweytak from '../assets/Haweytak.pdf';
+import ProGas from '../assets/ProGas.pdf';
+import portfolio from '../assets/img/portfolio.png';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 import projImg4 from "../assets/img/haweytak.jpg";
@@ -15,30 +17,44 @@ export const Projects = () => {
       title: "Wings Shop Application",
       description: "Kotlin",
       imgUrl: projImg1,
+      github : "https://github.com/Noor-AQ/Winged"
     },
     {
       title: "ATM Application",
       description: "C#",
       imgUrl: projImg2,
+      github : ""
     },
     {
       title: "Fuel Price Prediction Application",
       description: "Flutter & Machine Learning",
       imgUrl: projImg3,
+      github :   ""
     },
   ];
 
   const SRS = [
    { title : "Fuel Price Prediction SRS",
     description : "Documentation",
-    imgUrl : projImg3
+    imgUrl : projImg3,
+    github : ProGas
   },
   {
     title : "Haweytak SRS",
     description : "Documentation",
-    imgUrl : projImg4
+    imgUrl : projImg4,
+    github : haweytak
   }
   ];
+
+  const webApplications = [
+    {
+      title : "Portfolio Website",
+      description : "React JS",
+      imgUrl : portfolio,
+      github : "https://github.com/LaithAbusada/LaithPortfolio"
+    },
+  ]
 
   return (
     <section className="project" id="projects">
@@ -77,8 +93,19 @@ export const Projects = () => {
                         }
                       </Row>
                     </Tab.Pane>
-                    <Tab.Pane eventKey="section">
-                   
+                    <Tab.Pane eventKey="second">
+                      <Row>
+                    {
+                          webApplications.map((item, index) => {
+                            return (
+                              <ProjectCard
+                                key={index}
+                                {...item}
+                                />
+                            )
+                          })
+                        }
+                        </Row>
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
                       <Row>

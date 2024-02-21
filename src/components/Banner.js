@@ -3,13 +3,17 @@ import { ArrowRightCircle } from 'react-bootstrap-icons';
 import { Container, Row, Col } from 'react-bootstrap';
 import headerImg from '../assets/img/spaceman.png';
 import resume from '../assets/LaithAbusadaResume.pdf';
+import linkedIn from '../assets/img/nav-icon1.svg';
+import navIcon2 from '../assets/img/nav-icon2.svg';
+import instaIcon from '../assets/img/nav-icon3.svg';
+import githubIcon from '../assets/img/github3.svg';
 
 
 
 export const Banner = () => {
   var ReactRotatingText = require('react-rotating-text');
 
-
+  
   return (
     <section className="banner" id="home">
       <Container>
@@ -24,11 +28,20 @@ export const Banner = () => {
             <p> 
             Dedicated software engineering student and proficient web developer, passionate about creating innovative digital experiences.
             </p>
+            <span className="banner-text">
+                <div className="social-icon">
+                    <a href='https://www.linkedin.com/in/laithabusada/'><img src = {linkedIn} alt =""/></a>
+                    <a href='https://github.com/LaithAbusada'><img src = {githubIcon} alt =""/></a>
+                    <a href='https://www.instagram.com/abusadalaith/'><img src = {instaIcon} alt =""/></a>
+
+                </div>
+                
+            </span>
             <button onClick={console.log("Downloading")}>
-              Download CV  <a href = {resume} download = "LaithAbusadaResume"><ArrowRightCircle size={25} /> </a>
+              Download CV  <a href = {resume} download = "LaithAbusadaResume"><ArrowRightCircle size={25} style= {{}} /> </a>
             </button>
           </Col>
-          <Col xs={12} md={6} xl={5}> {/* Corrected closing tag and placement */}
+          <Col xs={12} md={6} xl={5}> 
             <img src={headerImg} alt="Header Img"  className='HeaderImage'/>
           </Col>
         </Row>
