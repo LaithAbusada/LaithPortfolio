@@ -18,7 +18,7 @@ export const ProjectCard = ({title,description,imgUrl,github}) => {
                     </h6>
 
                     <h6>
-                        <a href = {github!== "" ? github : "https://github.com/LaithAbusada" }>
+                        <a href = {github!== "" ? github : "https://github.com/LaithAbusada" } target="_blank" rel="noopener noreferrer">
                         <img src = {icon} className = "projCard-img"></img>
                         </a>
                     </h6>
