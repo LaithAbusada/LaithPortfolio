@@ -20,8 +20,8 @@ export const Banner = () => {
         <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
             
-            <h1>
-              Hi Im Laith Abusada 
+            <h1>  
+              Hi, I'm Laith Abusada 
         </h1>
         <span className="wrap"><ReactRotatingText items={['Software Engineer', 'Web Developer', 'Mobile Developer','Honors Student']} /></span>
             
