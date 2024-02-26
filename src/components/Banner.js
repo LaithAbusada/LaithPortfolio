@@ -30,9 +30,9 @@ export const Banner = () => {
             </p>
             <span className="banner-text">
                 <div className="social-icon">
-                    <a href='https://www.linkedin.com/in/laithabusada/'><img src = {linkedIn} alt =""/></a>
-                    <a href='https://github.com/LaithAbusada'><img src = {githubIcon} alt =""/></a>
-                    <a href='https://www.instagram.com/abusadalaith/'><img src = {instaIcon} alt =""/></a>
+                    <a href='https://www.linkedin.com/in/laithabusada/'  target="_blank"><img src = {linkedIn} alt =""/></a>
+                    <a href='https://github.com/LaithAbusada' target="_blank"><img src = {githubIcon} alt =""/></a>
+                    <a href='https://www.instagram.com/abusadalaith/' target="_blank"><img src = {instaIcon} alt =""/></a>
 
                 </div>
                 
