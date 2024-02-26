@@ -38,7 +38,7 @@ export const Banner = () => {
                 
             </span>
             <button onClick={console.log("Downloading")}>
-              Download CV  <a href = {resume} download = "LaithAbusadaResume"><ArrowRightCircle size={25} style= {{}} /> </a>
+                <a href = {resume} download = "LaithAbusadaResume">Download CV<ArrowRightCircle size={25} style= {{}} /> </a>
             </button>
           </Col>
           <Col xs={12} md={6} xl={5}> 
